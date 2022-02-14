@@ -1,0 +1,88 @@
+.boardContainer {
+  border: 3px solid rgb(var(--bullseye));
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: white;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  transform: scale(-1, 1);
+}
+.cell {
+  width: clamp(3rem, 15vw, 4.5rem);
+  height: clamp(3rem, 15vw, 4.5rem);
+  border-radius: 1rem;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-size: 2rem;
+  color: white;
+  transition: background-color 500ms ease-out;
+  transform: scale(-1, 1);
+}
+
+.input {
+  border: none;
+  outline-color: rgb(var(--bullseye));
+  font-family: "Quicksand";
+  color: rgb(var(--noMatch));
+  background-color: rgb(var(--empty));
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.5ch;
+  border-radius: 0.5rem;
+}
+
+.button {
+  font-family: "Quicksand";
+  outline-color: rgb(var(--bullseye));
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: rgb(var(--bullseye));
+  transition: background-color 200ms linear;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+.button:disabled {
+  background-color: rgb(var(--empty));
+  color: rgb(var(--noMatch));
+}
+
+.inputBoxContainer {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr auto;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.endGameModalContainer {
+  display: grid;
+  grid-auto-flow: row;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+  max-width: 400px;
+  margin: auto;
+  top: 30%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modalBackground {
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
