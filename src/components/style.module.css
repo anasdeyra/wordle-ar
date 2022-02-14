@@ -64,6 +64,12 @@
   width: 100%;
   align-items: flex-end;
 }
+@media only screen and (max-width: 400px) {
+  .inputBoxContainer {
+    grid-template-columns: none;
+    grid-auto-flow: row;
+  }
+}
 
 .endGameModalContainer {
   display: grid;

@@ -11,11 +11,7 @@ function WordleGenerator() {
   function refreshWordle() {
     setWordle(words[getRandomInt(words.length)]);
   }
-  return (
-    <React.StrictMode>
-      <App refreshWordle={refreshWordle} wordle={wordle} />
-    </React.StrictMode>
-  );
+  return <App refreshWordle={refreshWordle} wordle={wordle} />;
 }
 
 ReactDOM.render(<WordleGenerator />, document.getElementById("root"));
