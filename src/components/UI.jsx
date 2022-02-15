@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import style from "./style.module.css";
 
 export function Header() {
@@ -8,9 +9,10 @@ export function Header() {
   );
 }
 
-export function Button({ onClick, active = true, text }) {
+export function Button({ restartGameButtonRef, onClick, active = true, text }) {
   return (
     <button
+      ref={restartGameButtonRef}
       onClick={onClick}
       className={style.button}
       type="submit"
@@ -67,18 +69,32 @@ export function InputBox({
 }
 
 export function GameEndModal({ restartGame, hasWon = true, triesNumber = 5 }) {
-  const endText = (
+  const restartGameButtonRef = useRef();
+  var endText = "";
+  if (hasWon) {
+    if (triesNumber === 0) endText = `Bingo you have won the Jackpot`;
+    else if (triesNumber === 1) endText = `Nice! you have won with one try`;
+    else endText = `You have won with ${triesNumber} tries!`;
+  } else endText = "You have lost good luck next time!";
+
+  const endTextHeader = (
     <h2 style={{ color: `rgb(var(--${hasWon ? "bullseye" : "error"}))` }}>
-      {hasWon
-        ? `You won with ${triesNumber} tries!`
-        : "You lost good luck next time!"}
+      {endText}
     </h2>
   );
+
+  useEffect(() => {
+    restartGameButtonRef.current.focus();
+  }, []);
   return (
     <div className={style.modalBackground}>
       <div className={style.endGameModalContainer}>
-        {endText}
-        <Button onClick={restartGame} text={"New game"} />
+        {endTextHeader}
+        <Button
+          restartGameButtonRef={restartGameButtonRef}
+          onClick={restartGame}
+          text={"New game"}
+        />
       </div>
     </div>
   );
