@@ -96,6 +96,7 @@ function App({ wordle, refreshWordle }) {
           restartGame={restartGame}
           hasWon={gameWon}
           triesNumber={tries - triesLeft}
+          wordle={wordle}
         />
       )}
     </div>

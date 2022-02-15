@@ -68,7 +68,12 @@ export function InputBox({
   );
 }
 
-export function GameEndModal({ restartGame, hasWon = true, triesNumber = 5 }) {
+export function GameEndModal({
+  wordle,
+  restartGame,
+  hasWon = true,
+  triesNumber = 5,
+}) {
   const restartGameButtonRef = useRef();
   var endText = "";
   if (hasWon) {
@@ -89,6 +94,7 @@ export function GameEndModal({ restartGame, hasWon = true, triesNumber = 5 }) {
   return (
     <div className={style.modalBackground}>
       <div className={style.endGameModalContainer}>
+        <h3 style={{ justifySelf: "flex-end" }}>{wordle}</h3>
         {endTextHeader}
         <Button
           restartGameButtonRef={restartGameButtonRef}
