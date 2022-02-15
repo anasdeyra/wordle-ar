@@ -72,8 +72,8 @@ export function GameEndModal({ restartGame, hasWon = true, triesNumber = 5 }) {
   const restartGameButtonRef = useRef();
   var endText = "";
   if (hasWon) {
-    if (triesNumber === 0) endText = `Bingo you have won the Jackpot`;
-    else if (triesNumber === 1) endText = `Nice! you have won with one try`;
+    if (triesNumber === 0) endText = `Bingo! you have won the Jackpot.`;
+    else if (triesNumber === 1) endText = `Nice! you have won with one try.`;
     else endText = `You have won with ${triesNumber} tries!`;
   } else endText = "You have lost good luck next time!";
 
